@@ -1,16 +1,14 @@
-# config.py - Файл с настройками бота
 
-# Настройки Telegram бота
-# Получите токен у @BotFather в Telegram
-BOT_TOKEN = "7978360023:AAHNg8Kt6M9jITc4sGY3wGqeRIMu6i2xcls"
+# config.py - Файл конфигурации для Telegram бота
+import os
 
-# Настройки файла данных
+# Токен вашего бота от @BotFather
+# Берется из переменной окружения для безопасности
+BOT_TOKEN = os.getenv('BOT_TOKEN', 'your_token_here')
+
 # Путь к CSV файлу для сохранения данных
-# Если указать путь в папке Яндекс.Диска, файл будет автоматически синхронизироваться
-CSV_FILE_PATH = "receipts.csv"  # Можно изменить на путь к Яндекс.Диску
+CSV_FILE_PATH = os.getenv('CSV_FILE_PATH', 'receipts.csv')
 
-# Пример для Яндекс.Диска (раскомментируйте и измените путь):
-# CSV_FILE_PATH = r"C:\Users\ВашеИмя\YandexDisk\receipts.csv"
-
-# Настройки логирования
-LOG_LEVEL = "INFO"  # Уровень логирования: DEBUG, INFO, WARNING, ERROR
+# Дополнительные настройки
+LOG_LEVEL = "INFO"
+MAX_FILE_SIZE_MB = 50
